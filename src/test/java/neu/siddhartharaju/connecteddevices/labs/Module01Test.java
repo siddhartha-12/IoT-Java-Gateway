@@ -3,9 +3,16 @@
  */
 package neu.siddhartharaju.connecteddevices.labs;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import neu.siddhartharaju.connecteddevices.labs.module01.SystemCpuUtilTask;
+import neu.siddhartharaju.connecteddevices.labs.module01.SystemMemUtilTask;
+import neu.siddhartharaju.connecteddevices.labs.module01.SystemPerformanceAdaptor;
+
 
 /**
  * Test class for all requisite Module01 functionality.
@@ -19,6 +26,8 @@ import org.junit.Test;
  * 
  * Please note: While some example test cases may be provided, you must write your own for the class.
  */
+
+
 public class Module01Test
 {
 	// setup methods
@@ -39,15 +48,38 @@ public class Module01Test
 	{
 	}
 	
+	
 	// test methods
 	
 	/**
 	 * 
+	 * Cpu utilization test. Valid range 0 to 100
 	 */
 	@Test
-	public void testSomething()
-	{
-//		fail("Not yet implemented");
+	public void cpuUtilTest()
+	{	
+		assertTrue(SystemCpuUtilTask.getCpuUtil()>=(float)0);
+	}
+
+	/**
+	 * 
+	 * Memory utilization test. Valid range 0 to 100
+	 */
+	@Test
+	public void memoryUtilTest()
+	{	
+		assertTrue(SystemMemUtilTask.GetHeapMemoryUtil()>=(float)0);
+	}
+	
+	
+	/**
+	 * 
+	 * Method testing for SystemPerformanceAdapter getRun() test. Valid range 0 to 100
+	 */
+	@Test
+	public void getPerformanceMethodTest()
+	{	
+		assertTrue(SystemPerformanceAdaptor.getPerformance());
 	}
 	
 }
