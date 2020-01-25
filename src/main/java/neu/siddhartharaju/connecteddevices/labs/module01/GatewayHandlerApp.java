@@ -8,9 +8,10 @@ public class GatewayHandlerApp {
 		while(i<15)
 			{
 				
-				SystemPerformanceAdaptor.getPerformance();
+				
 			try {
 					Thread.sleep(5000);
+					SystemPerformanceAdaptor.getPerformance();
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
