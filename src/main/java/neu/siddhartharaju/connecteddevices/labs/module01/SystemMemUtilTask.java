@@ -8,10 +8,10 @@ public class SystemMemUtilTask {
 	{
 		double initMemory = ManagementFactory.getMemoryMXBean().getHeapMemoryUsage().getMax() ;
 		double usedMemory = ManagementFactory.getMemoryMXBean().getHeapMemoryUsage().getUsed();
-		//System.out.println("Commited " + initMemory + "  || Used " + usedMemory);
 		
-		double memUtil = (usedMemory/initMemory)*100d; 
-		//System.out.println(memUtil + "%");
+		
+		double memUtil = (usedMemory/initMemory)*100d; //Calculating heap memory utilization
+		
 		
 		return ((float)memUtil);
 	}

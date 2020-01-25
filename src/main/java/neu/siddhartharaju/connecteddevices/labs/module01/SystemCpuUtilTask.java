@@ -11,7 +11,7 @@ public class SystemCpuUtilTask {
 		
 
 		OperatingSystemMXBean bean = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
-	    double cpuload = bean.getSystemCpuLoad () * 100d;
+	    double cpuload = bean.getSystemCpuLoad () * 100d; //Fetching CPU load and converting in percentage
 	    return ((float)(cpuload));
 		
 	}
