@@ -43,7 +43,7 @@ public class ConfigUtilTest
 	// test methods
 	
 	/**
-	 * Test method for {@link com.labbenchstudios.iot.common.ConfigUtil#getBooleanProperty(java.lang.String, java.lang.String)}.
+	 * Test method for {@link neu.siddhartharaju.connecteddevices.common.ConfigUtil#getBooleanProperty(java.lang.String, java.lang.String)}.
 	 */
 	@Test
 	public void testGetBooleanProperty()
@@ -54,7 +54,7 @@ public class ConfigUtilTest
 	}
 	
 	/**
-	 * Test method for {@link com.labbenchstudios.iot.common.ConfigUtil#getIntegerProperty(java.lang.String, java.lang.String)}.
+	 * Test method for {@link neu.siddhartharaju.connecteddevices.common.ConfigUtil#getIntegerProperty(java.lang.String, java.lang.String)}.
 	 */
 	@Test
 	public void testGetIntegerProperty()
@@ -62,7 +62,7 @@ public class ConfigUtilTest
 	}
 	
 	/**
-	 * Test method for {@link com.labbenchstudios.iot.common.ConfigUtil#loadConfig(java.lang.String)}.
+	 * Test method for {@link neu.siddhartharaju.connecteddevices.common.ConfigUtil#loadConfig(java.lang.String)}.
 	 */
 	@Test
 	public void testGetProperty()
@@ -70,7 +70,7 @@ public class ConfigUtilTest
 	}
 	
 	/**
-	 * Test method for {@link com.labbenchstudios.iot.common.ConfigUtil#hasProperty(java.lang.String, java.lang.String)}.
+	 * Test method for {@link neu.siddhartharaju.connecteddevices.common.ConfigUtil#hasProperty(java.lang.String, java.lang.String)}.
 	 */
 	@Test
 	public void testHasProperty()
@@ -78,7 +78,7 @@ public class ConfigUtilTest
 	}
 	
 	/**
-	 * Test method for {@link com.labbenchstudios.iot.common.ConfigUtil#hasSection(java.lang.String)}.
+	 * Test method for {@link neu.siddhartharaju.connecteddevices.common.ConfigUtil#hasSection(java.lang.String)}.
 	 */
 	@Test
 	public void testHasSection()
@@ -86,7 +86,7 @@ public class ConfigUtilTest
 	}
 	
 	/**
-	 * Test method for {@link com.labbenchstudios.iot.common.ConfigUtil#isConfigDataLoaded()}.
+	 * Test method for {@link neu.siddhartharaju.connecteddevices.common.ConfigUtil#isConfigDataLoaded()}.
 	 */
 	@Test
 	public void testIsConfigDataLoaded()
