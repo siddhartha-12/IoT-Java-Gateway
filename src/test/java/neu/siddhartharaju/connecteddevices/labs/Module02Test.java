@@ -2,11 +2,14 @@
  * 
  */
 package neu.siddhartharaju.connecteddevices.labs;
+import neu.siddhartharaju.connecteddevices.labs.module02.TempSensorEmulatorTask;
+
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
+import neu.siddhartharaju.connecteddevices.labs.module02.SmtpClientConnector;
 /**
  * Test class for all requisite Module02 functionality.
  * 
@@ -26,9 +29,13 @@ public class Module02Test
 	/**
 	 * @throws java.lang.Exception
 	 */
+	TempSensorEmulatorTask emu;
+	SmtpClientConnector smtp; 
 	@Before
 	public void setUp() throws Exception
 	{
+		emu = new TempSensorEmulatorTask();
+		smtp = new SmtpClientConnector();
 	}
 	
 	/**
@@ -44,10 +51,37 @@ public class Module02Test
 	/**
 	 * 
 	 */
+
 	@Test
-	public void testSomething()
+	public void testSmtpData()
 	{
-//		fail("Not yet implemented");
+		assertTrue(smtp.publishMessage("Test Mail Java","If you are receiving this mail then the java test case have run successfully"));
 	}
+	@Test
+	public void testSensorEmulatorTask()
+	{
+		boolean val = emu.sendNotification();
+		assertTrue(val);
+	}
+	@Test
+	public void testSendNotification()
+	{
+		assertTrue(emu.sendNotification());
+	}
+	@Test
+	public void testSensorEmulatorTaskUpperBound()
+	{
+		float val = emu.getSensorData();
+		assertTrue(val<=30);
+	}
+	
+	@Test
+	public void testSensorEmulatorTaskLowerBound()
+	{
+		float val = emu.getSensorData();
+		assertTrue(val>=0);
+
+	}
+	
 	
 }

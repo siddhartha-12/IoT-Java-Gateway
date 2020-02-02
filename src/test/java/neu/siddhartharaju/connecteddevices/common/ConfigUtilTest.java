@@ -4,9 +4,15 @@
 
 package neu.siddhartharaju.connecteddevices.common;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import java.io.IOException;
+
 import org.junit.Before;
 import org.junit.Test;
-
+import neu.siddhartharaju.connecteddevices.common.ConfigUtil;
 /**
  * Test class for ConfigUtil functionality.
  * 
@@ -32,12 +38,15 @@ public class ConfigUtilTest
 	/**
 	 * @throws java.lang.Exception
 	 */
+	private static ConfigUtil configutil;
+	
 	@Before
 	public void setUp() throws Exception
 	{
 		// make sure test files exist
 //		assertTrue(_validTestFile.exists());
 //		assertTrue(ConfigUtil.getInstance().loadConfig(TEST_VALID_CFG_FILE));
+		configutil =  new ConfigUtil();
 	}
 	
 	// test methods
@@ -50,7 +59,9 @@ public class ConfigUtilTest
 	{
 //		String useWebAccessStr = "False"; // read the property from the appropriate section in the config file.
 //		
-//		assertTrue(Boolean.parseBoolean(useWebAccessStr));
+		assertTrue(configutil.getBoolean("ubidots.cloud", "useWebAccess"));
+		
+		
 	}
 	
 	/**
@@ -59,6 +70,7 @@ public class ConfigUtilTest
 	@Test
 	public void testGetIntegerProperty()
 	{
+		assertEquals(465, configutil.getInt("smtp.cloud", "port"));
 	}
 	
 	/**
@@ -67,6 +79,7 @@ public class ConfigUtilTest
 	@Test
 	public void testGetProperty()
 	{
+		assertEquals("Not equal", "smtp.gmail.com",(configutil.getValue("smtp.cloud", "host")));
 	}
 	
 	/**
@@ -75,6 +88,7 @@ public class ConfigUtilTest
 	@Test
 	public void testHasProperty()
 	{
+		assertNotNull(configutil.getValue("smtp.cloud", "host"));
 	}
 	
 	/**
@@ -83,14 +97,18 @@ public class ConfigUtilTest
 	@Test
 	public void testHasSection()
 	{
+		assertTrue(configutil.hasConfig());
 	}
 	
 	/**
+	 * @throws IOException 
 	 * Test method for {@link neu.siddhartharaju.connecteddevices.common.ConfigUtil#isConfigDataLoaded()}.
+	 * @throws  
 	 */
 	@Test
 	public void testIsConfigDataLoaded()
 	{
+
 	}
 	
 }

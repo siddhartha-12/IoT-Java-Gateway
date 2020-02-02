@@ -5,7 +5,7 @@ import neu.siddhartharaju.connecteddevices.labs.module02.TempSensorEmulatorTask;
 public class TempEmulatorAdaptor {
 
 	static private Logger logger = Logger.getLogger(TempEmulatorAdaptor.class.getName());
-	
+	//Execution method for emulator adaptor
 	public static void run() 
 	{
 		logger.info("Starting Applicaton");

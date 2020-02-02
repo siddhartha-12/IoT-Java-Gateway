@@ -3,6 +3,10 @@
  */
 package neu.siddhartharaju.connecteddevices.common;
 
+import neu.siddhartharaju.connecteddevices.common.SensorData;
+
+import static org.junit.Assert.assertTrue;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,9 +30,13 @@ public class SensorDataTest
 	/**
 	 * @throws java.lang.Exception
 	 */
+	SensorData sensor;
+	
 	@Before
 	public void setUp() throws Exception
 	{
+		sensor = new SensorData();
+		sensor.addValue(11);
 	}
 	
 	/**
@@ -41,10 +49,51 @@ public class SensorDataTest
 	
 	// test methods
 	
+//	@Test
+//	public void testSomething()
+//	{
+////		fail("Not yet implemented");
+//	}
+	
 	@Test
-	public void testSomething()
+	public  void testgetCurrent ()
 	{
-//		fail("Not yet implemented");
+		float val = sensor.getCurrentValue();
+		assertTrue((0<=val) && (val<=30));
 	}
+	
+	@Test
+	public void testgetAvg()
+	{
+		float val = sensor.getAverageValue();
+		assertTrue((0<=val) && (val<=30));
+		
+	}
+	
+	@Test
+	public void testgetMin()
+	{
+		float val = sensor.getMinValue();
+		assertTrue((0<=val) && (val<=30));
+		
+	}
+	
+	@Test
+	public void testgetMax()
+	{
+		float val = sensor.getMaxValue();
+		assertTrue((0<=val) && (val<=30));
+		
+	}
+	
+	@Test
+	public void testgetCount()
+	{
+		float val = sensor.getCount();
+		assertTrue((0<=val) && (val<=30));
+		
+	}
+	
+	
 	
 }

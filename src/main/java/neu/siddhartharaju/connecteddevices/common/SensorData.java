@@ -16,7 +16,7 @@ public class SensorData {
 	private int sampleCount;
 	
 	
-	
+	//Constructor
 	public SensorData() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -30,6 +30,7 @@ public class SensorData {
 		 this.sampleCount = 0;
 	}
 
+	//Adding value to the totVal and updating other parameters
 	public void addValue(float current)
 	{
 		if(this.sampleCount !=0)
@@ -54,17 +55,17 @@ public class SensorData {
 			this.totValue = current;
 		}
 	}
-          
+    //Getter for average       
 	public float  getAverageValue()
 	{
 		return (this.totValue / (float)this.sampleCount);
 	}
-	
+	//Getter for count
 	public int  getCount()
 	{
 		return (this.sampleCount);
 	}
-	
+	//Getter for Current Value
 	public float getCurrentValue()
 	{
 		Random rand = new Random();
@@ -73,27 +74,30 @@ public class SensorData {
 		this.curValue= temp;
 		return temp;
 	}
-        
+	//Getter for mac value    
 	public float getMaxValue()
 	{
 		return (this.maxValue); 
 	}
 	
+	//Getter for minimum value
 	public float getMinValue()
 	{
 		return (this.minValue);
 	}
-        
+    
+	//Getter for name
 	public String   getName() 
 	{
 		return(this.name);	
 	}
     
+	//Setter for name
 	public void  setName(String sname)
 	{
 		this.name = sname;
 	}
-	
+	//Getter for timestamp
 	public String getTimeStamp()
 	{
 		return (this.timeStamp);

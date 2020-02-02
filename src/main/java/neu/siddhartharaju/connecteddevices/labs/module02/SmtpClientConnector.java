@@ -9,7 +9,7 @@ public class SmtpClientConnector {
 	
 	private ConfigUtil config;
 	
-	
+	//Connecting SMTP client
 	public SmtpClientConnector() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -25,7 +25,7 @@ public class SmtpClientConnector {
 	}
 	
 	
-
+	//Generating mail body and sending it
 	public boolean publishMessage(String topic,String data)
 	{
 		  
@@ -47,7 +47,7 @@ public class SmtpClientConnector {
           });
 
         try {
-
+        	//Generating mail body
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(config.getValue("smtp.cloud","fromAddr")));
             message.setRecipients(Message.RecipientType.TO,
