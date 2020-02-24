@@ -12,18 +12,18 @@ public class TempSensorEmulatorTask {
 	public float getSensorData()
 	{
 		float sensorValue;
-		sensorValue = sensor.getCurrentValue();
-		logger.info("\nTemperature: \nTime: "+sensor.getTimeStamp()+"\ncurrent : "+String.valueOf(sensorValue) +"\nAverage :"+String.valueOf(sensor.getAverageValue())+"\nSamples :"+String.valueOf(sensor.getCount())+"\nMin: "+String.valueOf(sensor.getMinValue())+"\nMax :"+String.valueOf(sensor.getMaxValue())+"\n");
+		sensorValue = sensor.getCurrent();
+		logger.info("\nTemperature: \nTime: "+sensor.getTimestamp()+"\ncurrent : "+String.valueOf(sensorValue) +"\nAverage :"+String.valueOf(sensor.getAvg())+"\nSamples :"+String.valueOf(sensor.getReading_number())+"\nMin: "+String.valueOf(sensor.getMin_value())+"\nMax :"+String.valueOf(sensor.getMax_Value())+"\n");
 		return sensorValue;
 	}
 	//Testing if the threshold is reached. If reached sending a mail
 	public boolean sendNotification()
 	{	float tempValue = getSensorData();
 		try {
-		if( Math.abs (tempValue -sensor.getAverageValue())>threshold)
+		if( Math.abs (tempValue -sensor.getAvg())>threshold)
 		{
 			logger.info("Current temp exceeds average beyond " + String.valueOf(threshold) + ". Triggering alert...");
-			String data = "Temperature Exceeded Warning!\n\nTemperature: \nTime:" +sensor.getTimeStamp()+"\ncurrent : "+String.valueOf(tempValue) +"\nAverage :"+String.valueOf(sensor.getAverageValue())+"\nSamples :"+String.valueOf(sensor.getCount())+"\nMin: "+String.valueOf(sensor.getMinValue())+"\nMax :"+String.valueOf(sensor.getMaxValue())+"\n";
+			String data = "Temperature Exceeded Warning!\n\nTemperature: \nTime:" +sensor.getTimestamp()+"\ncurrent : "+String.valueOf(tempValue) +"\nAverage :"+String.valueOf(sensor.getAvg())+"\nSamples :"+String.valueOf(sensor.getReading_number())+"\nMin: "+String.valueOf(sensor.getMin_value())+"\nMax :"+String.valueOf(sensor.getMax_Value())+"\n";
 			//System.out.println(data);
 			SmtpClientConnector mail = new SmtpClientConnector();
 	        mail.publishMessage("Temperature Alert Java", data);

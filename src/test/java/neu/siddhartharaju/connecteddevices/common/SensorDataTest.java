@@ -58,14 +58,14 @@ public class SensorDataTest
 	@Test
 	public  void testgetCurrent ()
 	{
-		float val = sensor.getCurrentValue();
+		float val = sensor.getCurrent();
 		assertTrue((0<=val) && (val<=30));
 	}
 	
 	@Test
 	public void testgetAvg()
 	{
-		float val = sensor.getAverageValue();
+		float val = sensor.getAvg();
 		assertTrue((0<=val) && (val<=30));
 		
 	}
@@ -73,7 +73,7 @@ public class SensorDataTest
 	@Test
 	public void testgetMin()
 	{
-		float val = sensor.getMinValue();
+		float val = sensor.getMin_value();
 		assertTrue((0<=val) && (val<=30));
 		
 	}
@@ -81,7 +81,7 @@ public class SensorDataTest
 	@Test
 	public void testgetMax()
 	{
-		float val = sensor.getMaxValue();
+		float val = sensor.getMax_Value();
 		assertTrue((0<=val) && (val<=30));
 		
 	}
@@ -89,7 +89,7 @@ public class SensorDataTest
 	@Test
 	public void testgetCount()
 	{
-		float val = sensor.getCount();
+		float val = sensor.getReading_number();
 		assertTrue((0<=val) && (val<=30));
 		
 	}
