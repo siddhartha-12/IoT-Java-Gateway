@@ -51,13 +51,16 @@ public class PersistenceUtil {
 		};
 		
 		
-		
+		//Started polling by resubscribing to the channel
 		while(i<5)
 		{
 			jedis.subscribe(sc, "Sensor");
 			String jstring = jedis.get(sc.getkeyVal());
 			SensorData sdt  = DataUtil.toSensorDataFromJson(jstring);
 			sdl.onSensorMessage(sdt);
+			logger.info("--------------------------------------------------------");
+			logger.info("\nNew Sensor value received from Python \n\n" + sdt.toString());
+			logger.info("--------------------------------------------------------");
 			i++;
 		}
 
