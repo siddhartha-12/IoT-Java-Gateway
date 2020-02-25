@@ -8,17 +8,20 @@ import neu.siddhartharaju.connecteddevices.common.SensorData;
 import neu.siddhartharaju.connecteddevices.common.SensorDataListener;
 
 public class GatewayDataManager {
-
+	
+	static Logger logger = Logger.getLogger(GatewayDataManager.class.getName());
 	public static void run()
 	{
 		SensorDataListener sdl = new SensorDataListener();
+		
 		PersistenceUtil pu = new PersistenceUtil();
+		logger.info("Starting app\n Registering listener");
 		pu.registerSensorDataDbmsListener(sdl);
 	}
 	
-	public static void DataCheck(SensorData act)
+	public static boolean DataCheck(SensorData act)
 	{
-		System.out.println(act.toString());
+		//System.out.println(act.toString());
 		ActuatorData adt = new ActuatorData();
 		adt.setName("SenseHat Actuator");
 		adt.setCurrent(act.getCurrent());
@@ -37,9 +40,10 @@ public class GatewayDataManager {
 		adt.setTotal_value(act.getTotal_value());
 		adt.setAvgTemp(adt.getAvgTemp());
 		
-		System.out.println(adt.toString());
+		//System.out.println(adt.toString());
 		PersistenceUtil pu = new PersistenceUtil();
 		pu.WriteActuatorDataToDBMS(adt);
+		return true;
 	}
 	
 	public static void test()

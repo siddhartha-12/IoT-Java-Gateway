@@ -14,15 +14,15 @@ import redis.clients.jedis.JedisPubSub;
 public class PersistenceUtil {
 
 	private Logger logger = Logger.getLogger(PersistenceUtil.class.getName());
-    private String host = "127.0.0.1";
-    private int port = 6379;
-    private String auth = "connected2020";
+    private String host; //= "redis-11821.c114.us-east-1-4.ec2.cloud.redislabs.com"; // 127.0.0.1 | redis-11821.c114.us-east-1-4.ec2.cloud.redislabs.com
+    private int port; //= 11821; // 6379 | 11821
+    private String auth; //= "connected2020";
 	
     public PersistenceUtil() {
 		super();
 		// TODO Auto-generated constructor stub
-		this.host = "127.0.0.1";
-	    this.port = 6379;
+		this.host = "redis-11821.c114.us-east-1-4.ec2.cloud.redislabs.com";
+	    this.port = 11821;
 	    this.auth = "connected2020";
 		    
 	}
@@ -91,6 +91,7 @@ public class PersistenceUtil {
         jedis.publish("Actuator"+ actuatorData.getTimestamp(), message);
 		jedis.set("Actuator"+ actuatorData.getTimestamp(),message);
 		logger.info("Message sent to db");
+		jedis.close();
 		return true;
 	}
 

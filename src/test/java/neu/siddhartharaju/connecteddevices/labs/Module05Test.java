@@ -7,6 +7,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import neu.siddhartharaju.connecteddevices.common.ActuatorData;
+import neu.siddhartharaju.connecteddevices.common.SensorData;
+import neu.siddhartharaju.connecteddevices.labs.module05.PersistenceUtil;
+
 /**
  * Test class for all requisite Module05 functionality.
  * 
@@ -26,9 +30,17 @@ public class Module05Test
 	/**
 	 * @throws java.lang.Exception
 	 */
+	PersistenceUtil pu;
+	SensorData sdt;
+	ActuatorData adt;
 	@Before
 	public void setUp() throws Exception
 	{
+		sdt = new SensorData();
+		adt = new ActuatorData();
+		sdt.addValue(15);
+		adt.addValue(11);
+		this.pu = new PersistenceUtil();
 	}
 	
 	/**
@@ -45,8 +57,10 @@ public class Module05Test
 	 * 
 	 */
 	@Test
-	public void testSomething()
+	public void writeActuatorDataToDB()
 	{
+		pu.WriteActuatorDataToDBMS(this.adt);
+		
 //		fail("Not yet implemented");
 	}
 	
