@@ -10,6 +10,7 @@ import neu.siddhartharaju.connecteddevices.common.SensorDataListener;
 public class GatewayDataManager {
 	
 	static Logger logger = Logger.getLogger(GatewayDataManager.class.getName());
+	
 	public static void run()
 	{
 		SensorDataListener sdl = new SensorDataListener();
