@@ -3,9 +3,13 @@
  */
 package neu.siddhartharaju.connecteddevices.labs;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import neu.siddhartharaju.connecteddevices.labs.module06.MqttClientConnector;
 
 /**
  * Test class for all requisite Module06 functionality.
@@ -26,9 +30,11 @@ public class Module06Test
 	/**
 	 * @throws java.lang.Exception
 	 */
+	MqttClientConnector mcc;
 	@Before
 	public void setUp() throws Exception
 	{
+		mcc = new MqttClientConnector();
 	}
 	
 	/**
@@ -45,9 +51,19 @@ public class Module06Test
 	 * 
 	 */
 	@Test
-	public void testSomething()
+	public void MqttSetTopic()
 	{
-//		fail("Not yet implemented");
+		assertTrue(this.mcc.setSubscribeTopic("Test", 1));
+	}
+	@Test
+	public void MqttgetTopic()
+	{
+		assertNotNull(this.mcc.getSubscribeTopic());
+	}
+	@Test
+	public void MqttClientConnection()
+	{
+		assertNotNull(this.mcc.ClientConnection());
 	}
 	
 }
