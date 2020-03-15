@@ -3,9 +3,14 @@
  */
 package neu.siddhartharaju.connecteddevices.labs;
 
+import static org.junit.Assert.assertTrue;
+
+import org.eclipse.californium.core.CoapServer;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import neu.siddhartharaju.connecteddevices.labs.module07.CoapServerConnector;
+import neu.siddhartharaju.connecteddevices.labs.module07.TempResourceHandler;
 
 /**
  * Test class for all requisite Module07 functionality.
@@ -29,6 +34,7 @@ public class Module07Test
 	@Before
 	public void setUp() throws Exception
 	{
+		
 	}
 	
 	/**
@@ -45,9 +51,30 @@ public class Module07Test
 	 * 
 	 */
 	@Test
-	public void testSomething()
+	public void testServerResourceAdd()
 	{
-//		fail("Not yet implemented");
+		CoapServerConnector scs = new CoapServerConnector();
+		TempResourceHandler trh = new TempResourceHandler("Temp");
+		scs.set_coapServer();
+		assertTrue(scs.addResource(trh));
 	}
+	
+	@Test
+	public void testServerStartStop()
+	{
+		CoapServerConnector scs = new CoapServerConnector();
+		TempResourceHandler trh = new TempResourceHandler("Temp");
+		scs.start();
+		assertTrue(scs.stop());	
+	}
+	
+	@Test
+	public void testSetServer()
+	{
+		CoapServerConnector scs = new CoapServerConnector();
+		assertTrue(scs.set_coapServer());
+	}
+	
+	
 	
 }
