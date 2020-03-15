@@ -17,7 +17,7 @@ public class CoapServerApp extends Thread{
 	{
 		super();
 	}
-	// public methods
+	// Method to start the server initiation
 	public void start()
 	{
 		_coapServer = new CoapServerConnector();

@@ -18,7 +18,7 @@ public class CoapServerConnector
 	}
 	// public methods
 
-	
+	//Method to add resource to the server
 	public boolean addResource(CoapResource resource)
 	 {
 		 if (resource != null) 
@@ -27,7 +27,7 @@ public class CoapServerConnector
 		 }
 		 return true;
 	 }
-
+	//Method to start the server
 	public void start()
 	{
 		if (_coapServer == null) {
@@ -41,19 +41,18 @@ public class CoapServerConnector
 		_Logger.info("Starting CoAP server...");
 		_coapServer.start();
 	}
+	//Method to stop the server
 	public boolean stop()
 	{
 		_Logger.info("Stopping CoAP server...");
 		_coapServer.stop();
 		return true;
 	}
-
-
+	//Getter for the coap Server
 	public CoapServer get_coapServer() {
 		return _coapServer;
 	}
-
-
+	//Setter for the coap server
 	public boolean set_coapServer() {
 		this._coapServer = new CoapServer();
 		return true;
