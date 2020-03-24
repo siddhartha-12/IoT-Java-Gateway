@@ -52,7 +52,7 @@ public class MQTTPublisher {
 		return true;
 	}
 	/*
-	 * Getters and Setters for the properties
+	 * Getters and Setters for the properties below
 	 */
 	public String getTopic() {
 		return topic;
@@ -89,9 +89,4 @@ public class MQTTPublisher {
 		this.clientId = clientId;
 		return true;
 	}
-	
-	
-
-
-
 }

@@ -43,16 +43,14 @@ public class UbidotsClientConnector implements Runnable {
 				{
 					var.saveValue(value);
 					logger.info("Value sent - > " + value);
-				}
-				
+				}		
 			}
 			return true;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return false;
-		
+		return false;	
 	}
 	/*
 	 * Method to execute the working of ubidots connections
@@ -73,7 +71,4 @@ public class UbidotsClientConnector implements Runnable {
 			}
 		}
 	}
-	
-	
-
 }

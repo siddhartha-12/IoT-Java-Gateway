@@ -141,7 +141,6 @@ public class MqttClientConnector implements MqttCallback,Runnable{
 	 * Setter for topic subscribe
 	 */
 	public boolean setSubscribeTopic(String Topic,int qos)
-
 	{
 		this.topic = Topic;
 		this.qos = qos;
@@ -152,7 +151,6 @@ public class MqttClientConnector implements MqttCallback,Runnable{
 	 * @return
 	 */
 	public String getSubscribeTopic()
-
 	{
 		logger.info("Subscribing to -> " + this.topic);
 		return this.topic;
@@ -171,7 +169,6 @@ public class MqttClientConnector implements MqttCallback,Runnable{
 	public void messageArrived(String topic, MqttMessage message) throws Exception {
 		logger.info("Message received -> " + message.toString());
 		this.mpb.publishMessage(message.toString());
-		
 	}
 	
 	/***
@@ -202,9 +199,4 @@ public class MqttClientConnector implements MqttCallback,Runnable{
 			e.printStackTrace();
 		}
 	}
-
-	/*
-	 * Getters and setters of the fields
-	 *
-	*/
 }

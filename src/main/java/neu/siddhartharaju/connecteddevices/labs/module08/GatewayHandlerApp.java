@@ -11,8 +11,7 @@ public class GatewayHandlerApp extends Thread{
 		Thread t1 = new Thread(new UbidotsClientConnector());
 		Thread t2 = new Thread(new MqttClientConnector("industrial.ubidots.com","BBFF-xAJZhmZ4nMe1AqQlISPlNp21kTving","G:\\Sid\\Northeastern\\Courses\\Connected Devices\\Workspaces\\iot-gateway\\src\\main\\java\\neu\\siddhartharaju\\connecteddevices\\labs\\module08\\ubidots_cert.pem"));
 		t1.start();
-		t2.start();
-								
+		t2.start();						
 	}
 
 }
