@@ -3,9 +3,13 @@
  */
 package neu.siddhartharaju.connecteddevices.labs;
 
+import static org.junit.Assert.assertTrue;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import neu.siddhartharaju.connecteddevices.labs.module08.MQTTPublisher;
+import neu.siddhartharaju.connecteddevices.labs.module08.MqttClientConnector;
+import neu.siddhartharaju.connecteddevices.labs.module08.UbidotsClientConnector;
 
 /**
  * Test class for all requisite Module08 functionality.
@@ -21,6 +25,9 @@ import org.junit.Test;
  */
 public class Module08Test
 {
+	MqttClientConnector mcc;
+	MQTTPublisher mp;
+	UbidotsClientConnector ucc;
 	// setup methods
 	
 	/**
@@ -29,6 +36,9 @@ public class Module08Test
 	@Before
 	public void setUp() throws Exception
 	{
+		this.mcc = new MqttClientConnector();
+		this.mp = new MQTTPublisher();
+		this.ucc = new UbidotsClientConnector();
 	}
 	
 	/**
@@ -45,9 +55,40 @@ public class Module08Test
 	 * 
 	 */
 	@Test
-	public void testSomething()
+	public void MqttSetTopicSubscriber()
 	{
-//		fail("Not yet implemented");
+		assertTrue(this.mcc.setSubscribeTopic("Test", 1));
 	}
+	@Test
+	public void MqttGetTopicSubscriber()
+	{
+		this.mcc.setSubscribeTopic("Test", 1);
+		assertTrue(this.mcc.getSubscribeTopic()=="Test");
+	}
+	@Test
+	public void MqttPublisher()
+	{
+		assertTrue(this.mp.publishMessage("Test Publish"));
+	}
+	@Test
+	public void MqttPublisherGetterSetter()
+	{
+		assertTrue(this.mp.setTopic("Test"));
+		assertTrue(this.mp.getTopic()=="Test");
+		assertTrue(this.mp.setQos(1));
+		assertTrue(this.mp.getQos()==1);
+		assertTrue(this.mp.setBroker("Test.broker"));
+		assertTrue(this.mp.getBroker()=="Test.broker");	
+	}
+	@Test
+	public void TestUbidotsMessage()
+	{
+		assertTrue(this.mp.publishMessage("Test Publish"));
+	}
+	
+	
+	
+	
+	
 	
 }
