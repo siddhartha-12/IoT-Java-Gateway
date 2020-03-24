@@ -16,18 +16,20 @@ public class UbidotsClientConnector implements Runnable {
 	String apiKey;
 	private Logger logger = Logger.getLogger(UbidotsClientConnector.class.getName());
 
+	/*
+	 * Class constructor
+	 */
 	public UbidotsClientConnector() throws IOException {
 		super();
-//		this.mcc = mcc;
-//		this.config = new ConfigUtil();
-//		this.config.loadConfig("config\\ConnectedDevicesConfig.props");
-//		this.mcc.setHost(config.getValue("ubidots.cloud", "host"));
 		this.apiClient = new ApiClient();
 		this.apiKey= "BBFF-xAJZhmZ4nMe1AqQlISPlNp21kTving";
 		this.apiClient.fromToken(this.apiKey);
 		this.apiClient.setBaseUrl("https://things.ubidots.com/api/v1.6/");
 	}
 	
+	/*
+	 * Method to send value to ubidots
+	 */
 	public boolean ApiSaveValue(int value)
 	{	
 		try {
@@ -52,7 +54,9 @@ public class UbidotsClientConnector implements Runnable {
 		return false;
 		
 	}
-
+	/*
+	 * Method to execute the working of ubidots connections
+	 */
 	public void run() {
 		// TODO Auto-generated method stub
 		int i = 0;

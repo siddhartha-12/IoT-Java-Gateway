@@ -68,7 +68,9 @@ public class MqttClientConnector implements MqttCallback,Runnable{
 		this.mco.setKeepAliveInterval(60000);
 		this.mpb = new MQTTPublisher();
 		}
-	
+	/*
+	 * Constructor
+	 */
 	public MqttClientConnector(String host,String token,String FilePath) throws Exception
 	 {
 		this.protocol ="ssl";
@@ -93,7 +95,9 @@ public class MqttClientConnector implements MqttCallback,Runnable{
 		this.mco.setSocketFactory(sslContext.getSocketFactory());
 		
 	 }
-	
+	/*
+	 * Method used to read the properties from the certificate file
+	 */
 	public KeyStore readKeyStore() throws Exception
 	{
 		KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());

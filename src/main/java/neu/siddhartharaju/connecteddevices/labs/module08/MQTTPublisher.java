@@ -16,6 +16,9 @@ public class MQTTPublisher {
 	String clientId;
 	MemoryPersistence persistence;
 	MqttClient client;
+	/*
+	 * Class constructor 
+	 */
 	public MQTTPublisher() throws MqttException {
 		super();
 		this.topic        = "actuatorData";
@@ -25,7 +28,9 @@ public class MQTTPublisher {
 		this.clientId     = "Gateway";
 		this.client	      = new MqttClient(this.broker, this.clientId, this.persistence);
 	}
-
+	/*
+	 * Method to publish message on MQTT broker
+	 */
 	public boolean publishMessage(String val)
 	{
 		try {
@@ -46,7 +51,9 @@ public class MQTTPublisher {
 		}
 		return true;
 	}
-
+	/*
+	 * Getters and Setters for the properties
+	 */
 	public String getTopic() {
 		return topic;
 	}
