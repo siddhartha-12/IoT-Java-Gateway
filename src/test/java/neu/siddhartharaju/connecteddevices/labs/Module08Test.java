@@ -85,10 +85,4 @@ public class Module08Test
 	{
 		assertTrue(this.mp.publishMessage("Test Publish"));
 	}
-	
-	
-	
-	
-	
-	
 }
