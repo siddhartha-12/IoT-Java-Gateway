@@ -21,7 +21,6 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
  * Class Declaration
  */
 public class MqttClientConnector implements MqttCallback{
-
 	MqttClient client;
 	String protocol;
 	String host;
@@ -29,7 +28,6 @@ public class MqttClientConnector implements MqttCallback{
 	String topic;
 	SensorData sd;
 	int qos;
-	
 	/***
 	 * Logger variable for logging
 	 */

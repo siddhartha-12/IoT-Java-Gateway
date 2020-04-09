@@ -4,13 +4,9 @@
 package neu.siddhartharaju.connecteddevices.labs.module08;
 
 import java.util.logging.Logger;
-
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
-
-import neu.siddhartharaju.connecteddevices.common.ConfigUtil;
 import neu.siddhartharaju.connecteddevices.common.SensorData;
-
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -26,14 +22,12 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
-
 /***
  * 
  * @author Siddhartha
  * Class Declaration
  */
 public class MqttClientConnector implements MqttCallback,Runnable{
-
 	MqttClient client;
 	MqttConnectOptions mco;
 	String protocol;
@@ -54,7 +48,6 @@ public class MqttClientConnector implements MqttCallback,Runnable{
 	 * Class constructor
 	 * @throws MqttException
 	 */
-	
 	public MqttClientConnector() throws IOException, MqttException {
 		super();
 		this.host = "industrial.api.ubidots.com";

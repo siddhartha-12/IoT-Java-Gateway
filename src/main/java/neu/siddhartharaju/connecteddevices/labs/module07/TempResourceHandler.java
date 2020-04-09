@@ -15,7 +15,6 @@ public class TempResourceHandler extends CoapResource{
 	// static
 	private static final Logger _Logger =
 			Logger.getLogger(TempResourceHandler.class.getName());
-	
 	/*
 	 * Overloaded methods 
 	 * HandleGet method to handle all the get requests coming to the server
@@ -23,7 +22,7 @@ public class TempResourceHandler extends CoapResource{
 	@Override
 	 public void handleGET(CoapExchange ce)
 	 {
-	 ce.respond(ResponseCode.VALID, "GET worked!");
+	 ce.respond(ResponseCode.VALID,ce.getRequestPayload());
 	 _Logger.info("Received GET request from client.");
 	 }
 	//handlePOST method to handle all the post requests coming to the server
@@ -44,5 +43,4 @@ public class TempResourceHandler extends CoapResource{
 		ce.respond(ResponseCode.DELETED, "Delete worked!");
 		 _Logger.info("Received DELETE request from client.");
 	}
-
 }

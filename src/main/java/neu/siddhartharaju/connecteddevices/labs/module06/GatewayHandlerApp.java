@@ -9,8 +9,6 @@ public class GatewayHandlerApp extends Thread{
 	 */
 		MqttClientConnector mcc = new MqttClientConnector();
 				mcc.setSubscribeTopic("Siddhartha/Connected-Device/Sensor_Data", 2);
-				mcc.run();
-				
+				mcc.run();			
 	}
-
 }

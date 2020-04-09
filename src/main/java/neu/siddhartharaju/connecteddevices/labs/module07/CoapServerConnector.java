@@ -17,7 +17,6 @@ public class CoapServerConnector
 		super();
 	}
 	// public methods
-
 	//Method to add resource to the server
 	public boolean addResource(CoapResource resource)
 	 {
@@ -57,6 +56,4 @@ public class CoapServerConnector
 		this._coapServer = new CoapServer();
 		return true;
 	}
-	
-	
 }

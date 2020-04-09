@@ -1,6 +1,5 @@
 package neu.siddhartharaju.connecteddevices.labs.module08;
 import java.util.logging.Logger;
-
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;

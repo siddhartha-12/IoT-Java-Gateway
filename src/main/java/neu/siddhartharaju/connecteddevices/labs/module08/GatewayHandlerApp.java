@@ -1,6 +1,5 @@
 package neu.siddhartharaju.connecteddevices.labs.module08;
 
-
 public class GatewayHandlerApp extends Thread{
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
@@ -13,5 +12,4 @@ public class GatewayHandlerApp extends Thread{
 		t1.start();
 		t2.start();						
 	}
-
 }

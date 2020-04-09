@@ -4,8 +4,6 @@
 package neu.siddhartharaju.connecteddevices.labs;
 
 import static org.junit.Assert.assertTrue;
-
-import org.eclipse.californium.core.CoapServer;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
