@@ -34,6 +34,13 @@ public class DataUtil {
 		return actuatorData;
 	}
 	
+	public static PlantDeviceSensorData toPlantDeviceSenosorDataFromJson(String json)
+	{
+		Gson gson = new Gson();
+		PlantDeviceSensorData pdsd = gson.fromJson(json, PlantDeviceSensorData.class);
+		return pdsd;
+	}
+	
 	
 	
 }
