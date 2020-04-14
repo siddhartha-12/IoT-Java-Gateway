@@ -122,7 +122,9 @@ public class MQTTConstraintConnector implements MqttCallback,Runnable{
 	public void deliveryComplete(IMqttDeliveryToken token) {
 		// TODO Auto-generated method stub
 	}
-	
+	/***
+	 * Method for publishing received data to broker
+	 */
 	public boolean publishMessage(String topic,String val)
 	{
 		try {
@@ -144,7 +146,6 @@ public class MQTTConstraintConnector implements MqttCallback,Runnable{
 		}
 		return true;
 	}
-	
 	/***
 	 * Class execution methods
 	 * @return true of successful execution
@@ -168,7 +169,6 @@ public class MQTTConstraintConnector implements MqttCallback,Runnable{
 			e.printStackTrace();
 		}
 	}
-	
 }
 
 

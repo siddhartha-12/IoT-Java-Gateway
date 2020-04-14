@@ -6,6 +6,7 @@ public class GatewayDataManager {
 	MqttUbidotConnector muc;
 	Logger logger;
 	ConfigUtil cu;
+	//Constructor
 	public GatewayDataManager() throws Exception{
 		super();
 		// TODO Auto-generated constructor stub
@@ -15,7 +16,7 @@ public class GatewayDataManager {
 		this.mcc = new MQTTConstraintConnector();
 		this.muc = new MqttUbidotConnector(this.cu.getValue("MQTTubidots.cloud", "host"),this.cu.getValue("MQTTubidots.cloud", "apiKey"),this.cu.getValue("MQTTubidots.cloud", "certFile"));		
 	}
-	
+	//Method for application initialization
 	public void run()
 	{
 		logger.info("Starting Gateway Application");

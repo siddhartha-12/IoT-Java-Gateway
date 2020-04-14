@@ -45,7 +45,6 @@ public class UbidotsClientConnector implements Runnable {
 			DataSource dataSource = dataSourceArr[0];
 			Variable[] variablearr = dataSource.getVariables();
 			for (Variable var : variablearr) {
-				//logger.info(var.getName());
 				if(var.getName().compareTo("ConstrainMemoryUtil")==0)
 				{
 					var.saveValue(pdsd.getConstrainMemoryUtil());
@@ -78,7 +77,6 @@ public class UbidotsClientConnector implements Runnable {
 				{
 					var.saveValue(pdsd.getTemperature());
 				}
-				
 			}
 			return true;
 		} catch (Exception e) {

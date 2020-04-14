@@ -4,7 +4,9 @@ import java.lang.management.*;
 
 @SuppressWarnings("restriction")
 public class SystemCpuUtilTask {
-	
+	/***
+	 * Method for getting CPU utilization
+	 */
 	public static float getCpuUtil()
 	{
 		OperatingSystemMXBean bean = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
