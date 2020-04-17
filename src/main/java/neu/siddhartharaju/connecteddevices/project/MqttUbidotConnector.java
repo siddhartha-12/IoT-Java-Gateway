@@ -6,9 +6,7 @@ package neu.siddhartharaju.connecteddevices.project;
 import java.util.logging.Logger;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
-
 import neu.siddhartharaju.connecteddevices.common.ConfigUtil;
-import neu.siddhartharaju.connecteddevices.common.SensorData;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -36,7 +34,6 @@ public class MqttUbidotConnector implements MqttCallback,Runnable{
 	String host;
 	String port;
 	String topic;
-	SensorData sd;
 	MQTTPublisher mpb;
 	boolean Tls;
 	String filePath;

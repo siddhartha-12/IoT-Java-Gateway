@@ -9,8 +9,7 @@ import neu.siddhartharaju.connecteddevices.common.PlantDeviceSensorData;
 import neu.siddhartharaju.connecteddevices.labs.module06.MqttClientConnector;
 import com.ubidots.*;
 
-public class UbidotsClientConnector implements Runnable {
-
+public class UbidotsClientConnector implements Runnable {	
 	MqttClientConnector mcc;
 	ConfigUtil config;
 	ApiClient apiClient;

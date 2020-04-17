@@ -3,9 +3,17 @@
  */
 package neu.siddhartharaju.connecteddevices.project;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import neu.siddhartharaju.connecteddevices.project.MQTTPublisher;
+import neu.siddhartharaju.connecteddevices.labs.module01.SystemCpuUtilTask;
+import neu.siddhartharaju.connecteddevices.labs.module01.SystemMemUtilTask;
+import neu.siddhartharaju.connecteddevices.labs.module01.SystemPerformanceAdaptor;
+import neu.siddhartharaju.connecteddevices.project.MQTTConstraintConnector;
+import neu.siddhartharaju.connecteddevices.project.UbidotsClientConnector;
 
 /**
  * Test class for all requisite Project functionality.
@@ -21,6 +29,9 @@ import org.junit.Test;
  */
 public class ProjectTest
 {
+	MQTTConstraintConnector mcc;
+	MQTTPublisher mp;
+	UbidotsClientConnector ucc;
 	// setup methods
 	
 	/**
@@ -29,6 +40,9 @@ public class ProjectTest
 	@Before
 	public void setUp() throws Exception
 	{
+		this.mcc = new MQTTConstraintConnector();
+		this.mp = new MQTTPublisher();
+		this.ucc = new UbidotsClientConnector();
 	}
 	
 	/**
@@ -45,9 +59,69 @@ public class ProjectTest
 	 * 
 	 */
 	@Test
-	public void testSomething()
+	public void MqttSetTopicSubscriber()
 	{
-//		fail("Not yet implemented");
+		assertTrue(this.mcc.setSubscribeTopic("Test", 1));
+	}
+	@Test
+	public void MqttGetTopicSubscriber()
+	{
+		this.mcc.setSubscribeTopic("Test", 1);
+		assertTrue(this.mcc.getSubscribeTopic()=="Test");
+	}
+	@Test
+	public void MqttPublisher()
+	{
+		assertTrue(this.mp.publishMessage("Test Publish"));
+	}
+	@Test
+	public void MqttPublisherGetterSetter()
+	{
+		assertTrue(this.mp.setTopic("Test"));
+		assertTrue(this.mp.getTopic()=="Test");
+		assertTrue(this.mp.setQos(1));
+		assertTrue(this.mp.getQos()==1);
+		assertTrue(this.mp.setBroker("Test.broker"));
+		assertTrue(this.mp.getBroker()=="Test.broker");	
+	}
+	@Test
+	public void TestUbidotsMessage()
+	{
+		assertTrue(this.mp.publishMessage("Test Publish"));
+	}
+	
+	@Test
+	public void TestSystemUtil()
+	{
+		assertTrue(this.mp.publishMessage("Test Publish"));
+	}
+	/**
+	 * 
+	 * Cpu utilization test. Valid range 0 to 100
+	 */
+	@Test
+	public void cpuUtilTest()
+	{	
+		assertTrue(SystemCpuUtilTask.getCpuUtil()>=(float)0);
+	}
+
+	/**
+	 * 
+	 * Memory utilization test. Valid range 0 to 100
+	 */
+	@Test
+	public void memoryUtilTest()
+	{	
+		assertTrue(SystemMemUtilTask.GetHeapMemoryUtil()>=(float)0);
+	}
+	/**
+	 * 
+	 * Method testing for SystemPerformanceAdapter getRun() test. Valid range 0 to 100
+	 */
+	@Test
+	public void getPerformanceMethodTest()
+	{	
+		assertTrue(SystemPerformanceAdaptor.getPerformance());
 	}
 	
 }
